@@ -68,9 +68,12 @@ router.put('/:id', (req, res) => {
         }
     )
     .then(updated => {
+        
+        console.log(updated)
+
         db.movie.findByPk(req.params.id)
         .then(movie => {
-            res.send(movie)
+            res.send('movie updated', movie)
         })
         .catch(err => {
             console.log('error finding updated movie', err)
